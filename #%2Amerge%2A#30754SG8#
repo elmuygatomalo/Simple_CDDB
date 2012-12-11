@@ -2,7 +2,6 @@
 #adding entries
 #removing entries
 #querying entries
-<<<<<<< HEAD
 import _mysql
 import submit_entry
 import db_query
@@ -71,5 +70,3 @@ con.close()
 
 
 
-=======
->>>>>>> 3d2463222eb5145137b5b17bf080c01579ca2fdc
