@@ -3,6 +3,7 @@
 #removing entries
 #querying entries
 <<<<<<< HEAD
+import sys
 import _mysql
 import submit_entry
 import db_query
@@ -29,7 +30,7 @@ answer = raw_input(musicDB_name_query)
 answer.lower()
 
 if answer=="n" or answer=="no":
-    musicDB_name=raw_input("Enter new database name: ")
+	musicDB_name=raw_input("Enter new database name: ")
 
 hostname=raw_input("Please enter hostname: ")
 username=raw_input("Please enter username: ")
@@ -39,10 +40,10 @@ password=raw_input("Please enter password: ")
 con=None
 
 while con==None:
- try:
-    musicDB = _mysql.connect(hostname,username,password, musicDB_name)
- except _mysql.Error, e:
-     print "You fucked up"
+	try:
+		musicDB = _mysql.connect(hostname,username,password, musicDB_name)
+	except _mysql.Error,e:
+		print "You fucked up"
 
 musicDB.execute("CREATE TABLE IF NOT EXISTS Artists(Artist STRING, Album VARCHAR(25), Song VARCHAR(25), DiscID VARCHAR(8))")
 musicDB.execute("CREATE TABLE IF NOT EXISTS Albums(Artist STRING, Album VARCHAR(25), Song VARCHAR(25), DiscID VARCHAR(8))")
@@ -50,22 +51,22 @@ musicDB.execute("CREATE TABLE IF NOT EXISTS Songs(Artist STRING, Album VARCHAR(2
 
                 
 while true:
-    print menu
-    answer=raw_input("\n:")
-    if answer=="1":
-        #call adding function
-        print "this is 1"
-    elif anser=="2":
-        #call removal funciton
-        print "this is also 1"
-    elif anser=="3":
-        #call search function
-        print "this too is 1"
-    elif anser=="4":
-        print "Later Motherfucker"
-        break
-    else:
-        print "Wrong Answer"
+	print menu
+	answer=raw_input("\n:")
+	if answer=="1":
+		#call adding function
+		print "this is 1"
+	elif anser=="2":
+		#call removal funciton
+		print "this is also 1"
+	elif anser=="3":
+		#call search function
+		print "this too is 1"
+	elif anser=="4":
+		print "Later Motherfucker"
+		break
+	else:
+		print "Wrong Answer"
 
 con.close()
 
