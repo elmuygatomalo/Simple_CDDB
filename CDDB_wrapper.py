@@ -58,6 +58,19 @@ while musicDB==None:
 		sys.exit()
 
 cur=musicDB.cursor()
+cur.execute("show databases;")
+for (database,) in cur:
+	print(database)
+
+cur.execute("use musicdb;")
+for (result,) in cur:
+	print(result)
+
+cur.execute("select * from Songs;")
+rows=cur.fetchall()
+
+for row in rows:
+	print row
 cur.execute("CREATE TABLE IF NOT EXISTS Artists ( Id int PRIMARY KEY AUTO_INCREMENT, Artist varchar(25), Album varchar(25), Song varchar(25), DiscID varchar(8));")
 cur.execute("CREATE TABLE IF NOT EXISTS Albums ( Id int PRIMARY KEY AUTO_INCREMENT, Album varchar(25), Artist varchar(25), Song varchar(25), DiscID varchar(8));")
 cur.execute("CREATE TABLE IF NOT EXISTS Songs ( Id int PRIMARY KEY AUTO_INCREMENT, Song varchar(25), Artist varchar(25), Album varchar(25), DiscID varchar(8));")
