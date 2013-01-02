@@ -18,27 +18,8 @@ menu="What would you like to do? \n"
 menu=menu+"1-Add tracks by cd key \n"
 menu=menu+"2-Remove Somethign \n"
 menu=menu+"3-Search for something \n"
-menu=menu+"4-Get the fuck out "
-#read config file to determine if any previous database was used
-#check for existing config file
-#check for database 
+menu=menu+"4-Leave "
 
-#musicDB_name=howeverifindthatout
-#if musicDB != None:#
-#	musicDB_name_query="Would you like to use "+musicDB_name+" as your 
-#music database?: "
-#	answer = raw_input(musicDB_name_query)
-#	answer.lower()
-#	
-#	if answer=="n" or answer=="no":#
-#		musicDB_name=raw_input("Enter new database name: ")
-#else:
-#	musicDB_name=raw_input("Enter Database name: ")
-#	
-#	
-#hostname=raw_input("Please enter hostname: ")
-#username=raw_input("Please enter username: ")
-#password=raw_input("Please enter password: ")
 
 
 musicDB=None
@@ -54,7 +35,7 @@ while musicDB==None:
 	try:
 		musicDB = msb.connect("localhost",username,password, musicDB_name)
 	except _mysql.Error,e:
-		print "You fucked up you login credentials, if they even exist you jerk"
+		print "Incorrect login credentials\n"
 		sys.exit()
 
 cur=musicDB.cursor()
@@ -89,7 +70,7 @@ while True :
 		#call search function
 		print "this too is 1"
 	elif answer=="4":
-		print "Later Motherfucker"
+		print "Later"
 		break
 	else:
 		print "Wrong Answer"

@@ -17,9 +17,9 @@ def add_entry(database,*args, **entry_type):
 		DiscID=args[0]
 		#Some Crazy TCP shit I'll do later
 		tracks=1
-		song_name="Ias123412dfasdf"
-		album_name="IsdfB12341234UMasdf"
-		artist_name="IMsdIS12341234Tasdf"
+		song_name="testTrack"
+		album_name="testAlbum"
+		artist_name="testArtist"
 		result=""
 		for index in xrange(tracks):
 			#Insert track into Songs database
@@ -28,23 +28,20 @@ def add_entry(database,*args, **entry_type):
 			try:
 				print(database.execute(sql_insert_string))
 			except _mysql.Error, e:
-				print "You fucked up\n"
+				print "There has been an error\n"
 				print e
 			#Insert track into Albums database
 			sql_insert_string="insert into Albums (Song,Artist,Album,DiscID) values('"+artist_name+"','"+album_name+"','"+song_name+"','"+DiscID+"');"
 			try:
 				print(database.execute(sql_insert_string))
 			except _mysql.Error, e:
-				print "You fucked up"
+				print "There has been an error"
 			#Insert track into Artists database
 			sql_insert_string="insert into Artists (Song,Artist,Album,DiscID) values('"+artist_name+"','"+album_name+"','"+song_name+"','"+DiscID+"');"
 			try:
 				print(database.execute(sql_insert_string))
 			except _mysql.Error, e:
-				print "You fucked up"
-		return
-	else:
-		#Uh... I'll do this later too.
+				print "There has been an error"
 		return
 
 
